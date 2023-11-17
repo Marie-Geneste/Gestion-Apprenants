@@ -1,0 +1,31 @@
+<section class="formation-section">
+    <h1>Formation</h1>
+</section>
+
+<div>
+    <h3>Liste des formations</h3>
+</div>
+
+<div *ngIf="errMsg">
+    <h3>Error de chargement de contenu : {{errMsg}}</h3>
+</div>
+
+<div class="addRecord">
+    <section class="container" *ngIf="formations.length > 0">
+        <div class="card" *ngFor="let formation of formations">
+
+                <div class="formation_info">
+                    <ul>
+                        <li><span>Nom:</span>{{formation.nom}}</li>
+                        <li><span>Niveau:</span>{{formation.niveau}}</li>
+                        <li><span>Année:</span>{{formation.annee}}</li>
+                        <li><span>Durée:</span>{{formation.duree}}</li>
+                    </ul>
+                </div>
+                <div class="links">
+                    <a routerLink="/formations/view/{{formation.id}}">Afficher</a>
+                </div>
+            </div>
+    </section>
+</div>
+

@@ -1,0 +1,60 @@
+<section class="createApprenant">
+    <h1>Ajouter un apprenant</h1>
+</section>
+
+<div class="txt">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias nemo eligendi incidunt</p>
+</div>
+
+<section>
+    <div class="container">
+        <div class="profile_image">
+            <img [src]="apprenant.avatar" alt="">
+        </div>
+        <a routerLink="/apprenants"></a>
+    </div>
+
+    <div class="container">
+        <form (submit)="create()">
+            <div class="fields">
+                <label for="nom">Nom</label>
+                <input type="text" id="nom" name="nom" [(ngModel)]="apprenant.nom">
+            </div>
+            <div class="fields">
+                <label for="prenom">Prénom</label>
+                <input type="text" id="prenom" name="prenom" [(ngModel)]="apprenant.prenom">
+            </div>
+            <div class="fields">
+                <label for="age">Age</label>
+                <input type="text" id="age" name="age" [(ngModel)]="apprenant.age">
+            </div>
+            <div class="fields">
+                <label for="email">Email</label>
+                <input type="text" id="email" name="email" [(ngModel)]="apprenant.email">
+            </div>
+            <div class="fields">
+                <label for="avatar">Avatar</label>
+                <input type="text" id="avatar" name="avatar" [(ngModel)]="apprenant.avatar">
+            </div>
+            <div class="fields">
+                <label for="tel">Numéro Téléphone</label>
+                <input type="text" id="tel" name="tel" [(ngModel)]="apprenant.tel">
+            </div>
+            <div class="fields">
+                <label for="enEntreprise">Entreprise</label>
+                <select id="enEntreprise" name="enEntreprise" [(ngModel)]="apprenant.enEntreprise">
+                    <option>Oui</option>
+                    <option>Non</option>
+                </select>
+            </div>
+            <div class="fields" *ngIf="formations.length > 0">
+                <label for="formation">Sélectionner une formation</label>
+                <select name="formationId" [(ngModel)]="apprenant.formationId">
+                    <option *ngFor="let formationsList of formations" [value]="formationsList.id">{{formationsList.nom}}</option>
+                </select>
+            </div>
+            <input type="submit" value="Créer" />
+        </form>
+    </div>
+</section>
+

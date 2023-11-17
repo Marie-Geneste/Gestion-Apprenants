@@ -1,0 +1,41 @@
+<section class="createApprenant">
+    <h1>Gestion des Apprenants</h1>
+    <a class="addRecord" routerLink="/apprenants/add">
+        Ajouter un apprenant
+    </a>
+</section>
+
+<div>
+    <h3>Liste des apprenants</h3>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit</p>
+</div>
+
+<div *ngIf="errMsg">
+    <h3>Error de chargement de contenu : {{errMsg}}</h3>
+</div>
+
+<section class="container" *ngIf="apprenants.length > 0">
+    <div class="card-cont" *ngFor="let apprenant of apprenants">
+        <div class="card">
+            <div class="profile_image">
+                <img [src]="apprenant.avatar">
+            </div>
+
+            <div class="apprenant_info">
+                <ul>
+                    <li><span>Nom:</span>{{apprenant.nom}}</li>
+                    <li><span>Prénom:</span>{{apprenant.prenom}}</li>
+                    <li><span>Email:</span>{{apprenant.email}}</li>
+                    <li><span>Tel:</span>{{apprenant.tel}}</li>
+                </ul>
+            </div>
+
+            <div class="links">
+                <a routerLink="/apprenants/edit/{{apprenant.id}}">Editer</a>
+                <a routerLink="/apprenants/view/{{apprenant.id}}">Afficher</a>
+                <a (click)="deleteApprenant(apprenant.id)">Supprimer</a>
+            </div>
+        </div>
+
+    </div>
+</section>
